@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Project extends Model
 {
@@ -14,5 +15,10 @@ class Project extends Model
     public function path()
     {
         return "/projects/{$this->id}";
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
     }
 }
